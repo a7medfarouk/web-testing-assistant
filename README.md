@@ -52,6 +52,8 @@ uv run uvicorn backend.main:app --port 8000      # terminal 2
 
 Open http://localhost:8000. The browser window opens because `RUNNER_HEADLESS` is not set.
 
+The backend talks to Ollama at `http://localhost:11434` by default (the Ollama app on your machine). If you use the Ollama container from `docker compose` instead, set `OLLAMA_URL=http://localhost:11435`.
+
 To try the inspector alone:
 
 ```bash
@@ -68,9 +70,11 @@ Copy `.env.example` to `.env` to override the defaults.
 |---|---|---|
 | `OLLAMA_MODEL` | `qwen2.5-coder:7b` | Model to pull, warm up and call |
 | `OLLAMA_HOME` | `~/.ollama` | Folder holding the Ollama model store |
+| `HARDWARE` | `not set` | Your hardware, written to the model usage log (e.g. `Ryzen 5, 16 GB RAM, RTX 3050`) |
 | `BACKEND_PORT` | `8000` | Host port for the UI and API |
 | `OLLAMA_PORT` | `11435` | Host port for Ollama (11435 avoids clashing with a host install) |
 | `RUNNER_URL` | `http://localhost:8001` | Where the backend finds the runner (set by Docker) |
+| `OLLAMA_URL` | `http://localhost:11434` | Where the backend finds Ollama (set by Docker) |
 | `RUNNER_HEADLESS` | unset | `true` runs Chromium without a window (set by Docker) |
 
 No API keys are used. The model runs locally.
@@ -85,16 +89,22 @@ For each interactive element (links, buttons, inputs, selects, textareas, ARIA w
 
 Everything is observed on the page, nothing is guessed.
 
+## Saved data
+
+Everything the assistant saves goes to `data/` (a mounted folder in Docker):
+
+- `data/inspections/<host>_<timestamp>.json`: every inspection, exactly as the runner returned it. The model only ever sees elements from these files.
+- `data/model_calls.jsonl`: one line per model call with the model, hardware, prompt and output tokens, and response time. Token counts come from Ollama.
+
 ## Status
 
 | Area | State |
 |---|---|
 | Page inspection (elements, labels, attributes, locators) | Done |
-| Web UI (URL, scope, findings table, filter, element selection) | Done |
+| Web UI (URL, scope, goal, findings table, filter, element selection) | Done |
 | Docker setup (backend, runner, Ollama, model pull/warmup) | Done |
-| Testing goal passed to the backend | Planned (field exists in the UI) |
-| Model call over inspection data, with token and timing logs | Planned |
-| Saving inspections (`data/`) | Planned |
+| Saving inspections | Done |
+| Model call over the selected elements, with token and timing logs | Done |
 | Design document (`architecture.md`) | Planned |
 | Test plan, Playwright code, execution, maintenance, versioning | Phase 2 |
 
@@ -105,6 +115,6 @@ backend/    FastAPI app (main.py), config.py, model_client.py, storage.py
 frontend/   index.html, style.css, app.js
 runner/     server.py (API), inspector.py (page inspection)
 ollama/     pull-model.sh, warmup.sh
-data/       saved inspection results
+data/       saved inspections and the model usage log
 docs/       design documents
 ```

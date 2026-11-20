@@ -38,6 +38,7 @@
       <section id="selection-card" class="card" hidden>
         <h2>Selection</h2>
         <p id="selection-summary" class="muted"></p>
+        <button id="ask-btn" type="button" class="primary">Ask the model</button>
         <button id="clear-selection" type="button" class="link">Clear selection</button>
       </section>
     </aside>
@@ -64,6 +65,12 @@
         </div>
 
         <ul id="warnings" class="warnings" hidden></ul>
+
+        <div id="model-card" class="card model" hidden>
+          <h2>Model answer</h2>
+          <p id="model-answer"></p>
+          <p id="model-usage" class="muted"></p>
+        </div>
 
         <div class="card table-card">
           <div class="toolbar">

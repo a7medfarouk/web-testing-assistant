@@ -94,5 +94,8 @@ services:
       RUNNER_URL: http://runner:8001
       OLLAMA_URL: http://ollama:11434
       OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5-coder:7b}
+      HARDWARE: ${HARDWARE:-not set}
+    volumes:
+      - ./data:/app/data
     ports:
       - "${BACKEND_PORT:-8000}:8000"

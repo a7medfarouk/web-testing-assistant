@@ -171,6 +171,12 @@ button.link {
   border-radius: 10px;
 }
 
+.model { margin-bottom: 12px; }
+#model-answer { margin: 0 0 12px; white-space: pre-wrap; }
+#model-usage { margin: 0; font-size: 0.8rem; }
+#model-card.error #model-answer { color: var(--danger); }
+#ask-btn { margin: 0 0 8px; }
+
 .table-card { padding: 0; overflow: hidden; }
 .toolbar {
   display: flex;

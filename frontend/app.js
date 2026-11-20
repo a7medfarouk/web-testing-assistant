@@ -14,6 +14,8 @@ const selectAll = $("select-all");
 const selectionCard = $("selection-card");
 
 const state = { data: null, selected: new Set() };
+const modelCard = $("model-card");
+const askButton = $("ask-btn");
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
@@ -118,9 +120,9 @@ function renderRows() {
 
 function updateSelection(visibleRows) {
   const count = state.selected.size;
-  selectionCard.hidden = count === 0;
-  $("selection-summary").textContent =
-    `${count} element${count === 1 ? "" : "s"} selected`;
+  $("selection-summary").textContent = count
+    ? `${count} element${count === 1 ? "" : "s"} selected`
+    : "No elements selected: the model will use the first 40 elements.";
 
   const visibleSelected = visibleRows.filter((r) => state.selected.has(r.id)).length;
   selectAll.checked = visibleRows.length > 0 && visibleSelected === visibleRows.length;
@@ -153,8 +155,46 @@ function renderReport(data) {
   filterInput.value = "";
   emptyEl.hidden = true;
   reportEl.hidden = false;
+  selectionCard.hidden = false;
+  modelCard.hidden = true;
   renderRows();
 }
+
+function showModelResult(answer, usage, isError) {
+  modelCard.className = "card model" + (isError ? " error" : "");
+  $("model-answer").textContent = answer;
+  $("model-usage").textContent = usage
+    ? `Model: ${usage.model}${usage.model_digest ? ` (${usage.model_digest})` : ""}` +
+      ` · Hardware: ${usage.hardware}` +
+      ` · Prompt tokens: ${usage.prompt_tokens}` +
+      ` · Output tokens: ${usage.output_tokens}` +
+      ` · Response time: ${usage.response_time_s}s`
+    : "";
+  modelCard.hidden = false;
+}
+
+askButton.addEventListener("click", async () => {
+  askButton.disabled = true;
+  showModelResult("Asking the model...", null, false);
+  try {
+    const response = await fetch("/api/summarize", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        inspection_id: state.data.inspection_id,
+        goal: goalInput.value.trim() || null,
+        element_ids: [...state.selected],
+      }),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.detail || "Model call failed");
+    showModelResult(data.answer, data.usage, false);
+  } catch (err) {
+    showModelResult("Error: " + err.message, null, true);
+  } finally {
+    askButton.disabled = false;
+  }
+});
 
 filterInput.addEventListener("input", renderRows);
 

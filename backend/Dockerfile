@@ -22,7 +22,9 @@ ENV PATH="/opt/venv/bin:$PATH"
 COPY backend ./backend
 COPY frontend ./frontend
 
-RUN useradd --system --uid 10001 app
+RUN useradd --system --uid 10001 app \
+    && mkdir /app/data \
+    && chown app /app/data
 USER app
 
 EXPOSE 8000
