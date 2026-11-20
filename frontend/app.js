@@ -1,90 +1,182 @@
-// Minimal test UI: send a URL to the backend, show the elements it returns.
-// Page content is DATA: we always use textContent (never innerHTML) so
-// text taken from the inspected page can never run as code in this UI.
+const $ = (id) => document.getElementById(id);
 
-const form = document.getElementById("inspect-form");
-const urlInput = document.getElementById("url");
-const scopeInput = document.getElementById("scope");
-const button = document.getElementById("inspect-btn");
-const statusEl = document.getElementById("status");
-const summary = document.getElementById("summary");
-const table = document.getElementById("results");
-const tbody = table.querySelector("tbody");
-const rawBox = document.getElementById("raw-box");
-const rawEl = document.getElementById("raw");
+const form = $("inspect-form");
+const urlInput = $("url");
+const scopeInput = $("scope");
+const goalInput = $("goal");
+const button = $("inspect-btn");
+const statusEl = $("status");
+const emptyEl = $("empty");
+const reportEl = $("report");
+const tbody = document.querySelector("#results tbody");
+const filterInput = $("filter");
+const selectAll = $("select-all");
+const selectionCard = $("selection-card");
 
-function cell(text, className) {
-  const td = document.createElement("td");
-  td.textContent = text ?? "";
-  if (className) td.className = className;
+const state = { data: null, selected: new Set() };
+
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+
+function elementCell(item) {
+  const td = el("td");
+  td.append(el("div", "tag", `<${item.tag}>`));
+  const text = [item.text, item.label && `(label: ${item.label})`]
+    .filter(Boolean)
+    .join(" ");
+  if (text) td.append(el("div", "label-text", text));
   return td;
 }
 
-function locatorCell(locators) {
-  const td = document.createElement("td");
+function attributesCell(item) {
+  const lines = Object.entries(item.attributes).map(([k, v]) => `${k}="${v}"`);
+  return el("td", "attrs", lines.join("\n"));
+}
+
+function locatorsCell(locators) {
+  const td = el("td");
   if (!locators.length) {
-    td.textContent = "none found";
-    td.className = "none";
+    td.append(el("span", "none", "none found"));
     return td;
   }
   for (const loc of locators) {
-    const row = document.createElement("div");
-    const badge = document.createElement("span");
-    badge.className = "badge " + (loc.unique ? "ok" : "warn");
-    badge.textContent = loc.unique ? "unique" : loc.match_count + " matches";
-    const code = document.createElement("code");
-    code.textContent = loc.code;
-    row.append(badge, code);
+    const row = el("div", "loc");
+    const badge = el(
+      "span",
+      "badge " + (loc.unique ? "ok" : "warn"),
+      loc.unique ? "unique" : `${loc.match_count} matches`
+    );
+    row.append(badge, el("code", "", loc.code));
     td.append(row);
   }
   return td;
 }
 
-function render(data) {
-  const noUnique = data.elements.filter(
-    (el) => !el.locators.some((l) => l.unique)
-  ).length;
+function stateCell(item) {
+  const lines = [
+    item.visible ? "visible" : "hidden",
+    item.enabled ? "enabled" : "disabled",
+  ];
+  if (item.form) lines.push(`form: ${item.form}`);
+  return el("td", "attrs", lines.join("\n"));
+}
 
-  summary.textContent =
-    `Page: ${data.title}\n` +
-    `URL: ${data.url}\n` +
-    `Scanned: ${data.scanned_at}` +
-    (data.scope ? `  |  Scope: ${data.scope}` : "") +
-    `\nElements found: ${data.elements.length}` +
-    `  |  Without a unique locator: ${noUnique}`;
-  summary.style.whiteSpace = "pre-line";
+function matchesFilter(item, query) {
+  if (!query) return true;
+  const haystack = [
+    item.tag,
+    item.text,
+    item.label,
+    ...Object.entries(item.attributes).flat(),
+  ]
+    .join(" ")
+    .toLowerCase();
+  return haystack.includes(query);
+}
+
+function renderRows() {
+  const query = filterInput.value.trim().toLowerCase();
+  const rows = state.data.elements.filter((item) => matchesFilter(item, query));
 
   tbody.replaceChildren();
-  for (const el of data.elements) {
-    const tr = document.createElement("tr");
-    const attrs = Object.entries(el.attributes)
-      .map(([k, v]) => `${k}="${v}"`)
-      .join("\n");
-    const state =
-      (el.visible ? "visible" : "hidden") + ", " +
-      (el.enabled ? "enabled" : "disabled") +
-      (el.form ? `\nform: ${el.form}` : "");
+  for (const item of rows) {
+    const tr = el("tr");
+    tr.classList.toggle("selected", state.selected.has(item.id));
+
+    const checkCell = el("td", "check");
+    const box = document.createElement("input");
+    box.type = "checkbox";
+    box.checked = state.selected.has(item.id);
+    box.setAttribute("aria-label", `Select element ${item.id}`);
+    box.addEventListener("change", () => {
+      if (box.checked) state.selected.add(item.id);
+      else state.selected.delete(item.id);
+      tr.classList.toggle("selected", box.checked);
+      updateSelection(rows);
+    });
+    checkCell.append(box);
+
     tr.append(
-      cell(el.id),
-      cell(el.tag),
-      cell([el.text, el.label && `(label: ${el.label})`].filter(Boolean).join(" ")),
-      cell(attrs, "attrs"),
-      locatorCell(el.locators),
-      cell(state, "attrs")
+      checkCell,
+      el("td", "", String(item.id)),
+      elementCell(item),
+      attributesCell(item),
+      locatorsCell(item.locators),
+      stateCell(item)
     );
     tbody.append(tr);
   }
-  table.hidden = false;
 
-  rawEl.textContent = JSON.stringify(data, null, 2);
-  rawBox.hidden = false;
+  $("count").textContent =
+    `${rows.length} of ${state.data.elements.length} shown`;
+  updateSelection(rows);
 }
+
+function updateSelection(visibleRows) {
+  const count = state.selected.size;
+  selectionCard.hidden = count === 0;
+  $("selection-summary").textContent =
+    `${count} element${count === 1 ? "" : "s"} selected`;
+
+  const visibleSelected = visibleRows.filter((r) => state.selected.has(r.id)).length;
+  selectAll.checked = visibleRows.length > 0 && visibleSelected === visibleRows.length;
+  selectAll.indeterminate =
+    visibleSelected > 0 && visibleSelected < visibleRows.length;
+}
+
+function renderReport(data) {
+  state.data = data;
+  state.selected.clear();
+
+  const unique = data.elements.filter((e) => e.locators.some((l) => l.unique)).length;
+  $("page-title").textContent = data.title || "(untitled page)";
+  const link = $("page-url");
+  link.textContent = data.url;
+  link.href = data.url;
+  $("page-meta").textContent =
+    `HTTP ${data.http_status ?? "?"} · ${data.scan_seconds}s · ${data.browser}` +
+    (data.scope ? ` · scope: ${data.scope}` : "");
+
+  $("stat-total").textContent = data.element_count;
+  $("stat-unique").textContent = unique;
+  $("stat-weak").textContent = data.elements.length - unique;
+
+  const warnings = $("warnings");
+  warnings.replaceChildren(...data.warnings.map((w) => el("li", "", w)));
+  warnings.hidden = data.warnings.length === 0;
+
+  $("raw").textContent = JSON.stringify(data, null, 2);
+  filterInput.value = "";
+  emptyEl.hidden = true;
+  reportEl.hidden = false;
+  renderRows();
+}
+
+filterInput.addEventListener("input", renderRows);
+
+selectAll.addEventListener("change", () => {
+  const query = filterInput.value.trim().toLowerCase();
+  for (const item of state.data.elements.filter((i) => matchesFilter(i, query))) {
+    if (selectAll.checked) state.selected.add(item.id);
+    else state.selected.delete(item.id);
+  }
+  renderRows();
+});
+
+$("clear-selection").addEventListener("click", () => {
+  state.selected.clear();
+  renderRows();
+});
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   button.disabled = true;
   statusEl.className = "";
-  statusEl.textContent = "Inspecting... a browser window will open.";
+  statusEl.textContent = "Inspecting...";
 
   try {
     const response = await fetch("/api/inspect", {
@@ -97,7 +189,7 @@ form.addEventListener("submit", async (event) => {
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.detail || "Inspection failed");
-    render(data);
+    renderReport(data);
     statusEl.textContent = "";
   } catch (err) {
     statusEl.className = "error";
