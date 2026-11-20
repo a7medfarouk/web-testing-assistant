@@ -1,0 +1,98 @@
+name: web-testing-assistant
+
+services:
+  # ── Ollama server ──────────────────────────────────────────────────────────
+  ollama:
+    image: ollama/ollama:latest
+    restart: unless-stopped
+    environment:
+      OLLAMA_HOST: 0.0.0.0:11434
+      OLLAMA_KEEP_ALIVE: "-1" # never unload the model after idling
+    volumes:
+      # Reuse the host's model store so nothing is downloaded twice.
+      # See .env.example if your host store lives somewhere else.
+      - ${OLLAMA_HOME:-${HOME}/.ollama}:/root/.ollama
+    ports:
+      # 11435 so this doesn't clash with an Ollama already running on the host.
+      - "127.0.0.1:${OLLAMA_PORT:-11435}:11434"
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    # NVIDIA GPU (needs the NVIDIA Container Toolkit). Uncomment to use it:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+  # ── One-shot: pull the model only if it isn't in the store yet ────────────
+  ollama-pull:
+    image: ollama/ollama:latest
+    restart: "no"
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+      MODEL: ${OLLAMA_MODEL:-qwen2.5:7b-instruct}
+    volumes:
+      - ./ollama/pull-model.sh:/pull-model.sh:ro
+    entrypoint: ["/bin/sh", "/pull-model.sh"]
+
+  # ── Sidecar: keeps the model loaded so the first prompt is fast ───────────
+  ollama-warmup:
+    image: curlimages/curl:8.11.1
+    restart: unless-stopped
+    depends_on:
+      ollama:
+        condition: service_healthy
+      ollama-pull:
+        condition: service_completed_successfully
+    environment:
+      OLLAMA_URL: http://ollama:11434
+      MODEL: ${OLLAMA_MODEL:-qwen2.5:7b-instruct}
+    volumes:
+      - ./ollama/warmup.sh:/warmup.sh:ro
+    entrypoint: ["/bin/sh", "/warmup.sh"]
+
+  # ── Runner: the only process that controls the browser ────────────────────
+  runner:
+    build:
+      context: .
+      dockerfile: runner/Dockerfile
+    restart: unless-stopped
+    init: true # reaps leftover Chromium child processes
+    shm_size: 1gb # Chromium crashes on Docker's default 64 MB /dev/shm
+    environment:
+      RUNNER_HEADLESS: "true" # no display in a container
+    extra_hosts:
+      # lets the runner inspect an app running on your machine via http://host.docker.internal:PORT
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request as u; u.urlopen('http://localhost:8001/openapi.json')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  # ── Backend: serves the frontend and forwards requests to the runner ──────
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      runner:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+    environment:
+      RUNNER_URL: http://runner:8001
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:7b-instruct}
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"

@@ -3,6 +3,7 @@
 Start it with:  uv run uvicorn backend.main:app --port 8000
 Then open http://localhost:8000
 """
+import os
 from pathlib import Path
 
 import httpx
@@ -10,7 +11,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-RUNNER_URL = "http://localhost:8001"
+RUNNER_URL = os.environ.get("RUNNER_URL", "http://localhost:8001")
 FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
 
 app = FastAPI(title="Web Testing Assistant")
