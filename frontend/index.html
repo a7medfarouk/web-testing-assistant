@@ -9,18 +9,14 @@
 <body>
   <header>
     <div class="header-inner">
-      <span class="logo" aria-hidden="true"></span>
-      <div>
-        <h1>Web Testing Assistant</h1>
-        <p>Inspect a page, pick elements, ask the model</p>
-      </div>
+      <h1>Web Testing Assistant</h1>
     </div>
   </header>
 
   <main>
     <aside>
       <form id="inspect-form" class="card">
-        <h2>Inspect a page</h2>
+        <h2><span class="num">1</span>Inspect a page</h2>
 
         <label for="url">Page URL</label>
         <input id="url" type="url" placeholder="https://example.com/login" required>
@@ -36,10 +32,11 @@
       </form>
 
       <section id="selection-card" class="card" hidden>
-        <h2>Model</h2>
-        <p id="selection-summary" class="muted"></p>
+        <h2><span class="num">2</span>Ask the model</h2>
+        <p class="helper">Tick elements in the table to focus the question, or leave them all unticked to ask about the whole page.</p>
+        <p id="selection-summary" class="pill" hidden></p>
         <button id="ask-btn" type="button" class="primary">Ask the model</button>
-        <button id="clear-selection" type="button" class="link">Clear selection</button>
+        <button id="clear-selection" type="button" class="link" hidden>Clear selection</button>
       </section>
     </aside>
 
@@ -50,18 +47,17 @@
       </div>
 
       <div id="report" hidden>
-        <div class="card page-info">
-          <div>
+        <div class="card overview">
+          <div class="page-info">
             <div id="page-title" class="page-title"></div>
             <a id="page-url" target="_blank" rel="noopener noreferrer"></a>
+            <div id="page-meta" class="muted"></div>
           </div>
-          <div id="page-meta" class="muted"></div>
-        </div>
-
-        <div class="card stats">
-          <div class="stat"><span id="stat-total" class="num">0</span><span class="label">Elements</span></div>
-          <div class="stat"><span id="stat-unique" class="num">0</span><span class="label">With a unique locator</span></div>
-          <div class="stat"><span id="stat-weak" class="num">0</span><span class="label">Without one</span></div>
+          <div class="stats">
+            <div class="stat"><span id="stat-total" class="num">0</span><span class="label">Elements</span></div>
+            <div class="stat"><span id="stat-unique" class="num">0</span><span class="label">Unique locator</span></div>
+            <div class="stat"><span id="stat-weak" class="num">0</span><span class="label">No unique locator</span></div>
+          </div>
         </div>
 
         <ul id="warnings" hidden></ul>

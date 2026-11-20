@@ -59,12 +59,13 @@ function locatorsCell(locators) {
 }
 
 function stateCell(item) {
-  const lines = [
-    item.visible ? "visible" : "hidden",
-    item.enabled ? "enabled" : "disabled",
-  ];
-  if (item.form) lines.push(`form: ${item.form}`);
-  return el("td", "attrs", lines.join("\n"));
+  const td = el("td", "state");
+  td.append(
+    el("span", "chip" + (item.visible ? "" : " off"), item.visible ? "visible" : "hidden"),
+    el("span", "chip" + (item.enabled ? "" : " off"), item.enabled ? "enabled" : "disabled")
+  );
+  if (item.form) td.append(el("span", "chip", `form: ${item.form}`));
+  return td;
 }
 
 function matchesFilter(item, query) {
@@ -120,9 +121,10 @@ function renderRows() {
 
 function updateSelection(visibleRows) {
   const count = state.selected.size;
-  $("selection-summary").textContent = count
-    ? `${count} element${count === 1 ? "" : "s"} selected`
-    : "";
+  const summary = $("selection-summary");
+  summary.textContent = `${count} element${count === 1 ? "" : "s"} selected`;
+  summary.hidden = count === 0;
+  $("clear-selection").hidden = count === 0;
 
   const visibleSelected = visibleRows.filter((r) => state.selected.has(r.id)).length;
   selectAll.checked = visibleRows.length > 0 && visibleSelected === visibleRows.length;
