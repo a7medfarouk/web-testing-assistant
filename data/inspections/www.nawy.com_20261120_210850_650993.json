@@ -1,0 +1,5717 @@
+{
+  "about_locators": {
+    "what_locators_are": "Each element has a 'locators' list: the candidate Playwright locators found for that element, best first. Every candidate was run against the live page, so 'match_count' is what was actually observed, not a guess. Candidates that matched nothing were dropped. An empty list means no usable locator was found.",
+    "fields": {
+      "strategy": "How the locator finds the element: test_id (data-testid), role (ARIA role + accessible name), label (form label text), placeholder, text (visible text, only for elements with no ARIA role), css_id (id attribute), css_data_test / css_data_cy / css_data_qa (other test attributes), css_name (name attribute), css_href (link target), css_path (position in the page, last resort).",
+      "code": "The Playwright (Python) call that builds the locator, e.g. page.<code>.",
+      "match_count": "How many elements on the WHOLE page this locator matched when scanned.",
+      "unique": "true when match_count is exactly 1. Only a unique locator is safe for an action (click, fill) because it can only hit this one element. false means it also matches other elements and would be ambiguous.",
+      "stable": "true when the locator relies on meaningful page content (test id, role/name, label, id, ...) and should survive layout changes. false (only css_path) means it relies on the element's position in the page, so adding, removing or moving elements can break it or make it point at the wrong element."
+    },
+    "how_to_choose": "Prefer the first locator with unique=true and stable=true. If only a stable=false locator is unique, treat it as fragile and ask the tester to confirm."
+  },
+  "url": "https://www.nawy.com/",
+  "requested_url": "https://www.nawy.com/",
+  "title": "Nawy |Buy, Sell, Rent and Invest in Premium Real Estate in Egypt",
+  "scope": null,
+  "scanned_at": "2026-11-20T21:08:50+00:00",
+  "http_status": 200,
+  "browser": "chromium 159.0.8154.6",
+  "scan_seconds": 8.9,
+  "element_count": 206,
+  "truncated": false,
+  "warnings": [],
+  "elements": [
+    {
+      "tag": "a",
+      "text": "Privacy Policy",
+      "label": "",
+      "attributes": {
+        "href": "/privacy-policy#cookies",
+        "title": "privacy policy"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 1,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Privacy Policy\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/privacy-policy#cookies\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "Ok, Got It",
+      "label": "",
+      "attributes": {
+        "data-test": "search-btn"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 2,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"Ok, Got It\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"search-btn\\\"]\")",
+          "match_count": 4,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "href": "/",
+        "data-test": "home-btn"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 3,
+      "locators": [
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"home-btn\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/\\\"]\")",
+          "match_count": 4,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"header\\\"] > div > div:nth-of-type(1) > a\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Home",
+      "label": "",
+      "attributes": {
+        "href": "/",
+        "data-test": "home-btn"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 4,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Home\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"home-btn\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/\\\"]\")",
+          "match_count": 4,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"header\\\"] > div > div:nth-of-type(2) > a:nth-of-type(1)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Search",
+      "label": "",
+      "attributes": {
+        "href": "/search",
+        "data-test": "search-btn"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 5,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Search\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"search-btn\\\"]\")",
+          "match_count": 4,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"header\\\"] > div > div:nth-of-type(2) > a:nth-of-type(2)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Nawy Now",
+      "label": "",
+      "attributes": {
+        "href": "/nawy-now"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 6,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Nawy Now\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/nawy-now\\\"]\")",
+          "match_count": 3,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"header\\\"] > div > div:nth-of-type(2) > a:nth-of-type(3)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Sell",
+      "label": "",
+      "attributes": {
+        "href": "/sell-my-property"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 7,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Sell\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/sell-my-property\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "Verify Agent",
+      "label": "",
+      "attributes": {
+        "data-testid": "verify-agent_header-trigger_cta-btn"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 8,
+      "locators": [
+        {
+          "strategy": "test_id",
+          "code": "get_by_test_id(\"verify-agent_header-trigger_cta-btn\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Contact",
+      "label": "",
+      "attributes": {
+        "href": "/contact",
+        "data-test": "contact-btn"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 9,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Contact\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"contact-btn\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/contact\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Blog",
+      "label": "",
+      "attributes": {
+        "href": "https://www.nawy.com/blog",
+        "data-test": "blog-btn",
+        "target": "_blank"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 10,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Blog\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"blog-btn\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://www.nawy.com/blog\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Careers",
+      "label": "",
+      "attributes": {
+        "href": "https://apply.workable.com/nawy-real-estate/",
+        "data-test": "careers-btn",
+        "target": "_blank"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 11,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Careers\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"careers-btn\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://apply.workable.com/nawy-real-estate/\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "About",
+      "label": "",
+      "attributes": {
+        "href": "/about-us",
+        "data-test": "about-btn"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 12,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"About\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"about-btn\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/about-us\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "fav-link",
+      "attributes": {
+        "aria-label": "fav-link",
+        "href": "/favorites",
+        "data-test": "fav-btn"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 13,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"fav-link\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"fav-btn\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/favorites\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "Login",
+      "label": "",
+      "attributes": {
+        "data-test": "login-btn"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 14,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"Login\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"login-btn\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Apartment",
+      "attributes": {
+        "name": "Apartment",
+        "type": "checkbox",
+        "value": "21"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 15,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Apartment\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Apartment\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Chalet",
+      "attributes": {
+        "name": "Chalet",
+        "type": "checkbox",
+        "value": "5"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 16,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Chalet\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Chalet\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Townhouse",
+      "attributes": {
+        "name": "Townhouse",
+        "type": "checkbox",
+        "value": "7"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 17,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Townhouse\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Townhouse\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Villa",
+      "attributes": {
+        "name": "Villa",
+        "type": "checkbox",
+        "value": "1"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 18,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Villa\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Villa\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Office",
+      "attributes": {
+        "name": "Office",
+        "type": "checkbox",
+        "value": "8"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 19,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Office\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Office\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Cabin",
+      "attributes": {
+        "name": "Cabin",
+        "type": "checkbox",
+        "value": "11"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 20,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Cabin\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Cabin\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Duplex",
+      "attributes": {
+        "name": "Duplex",
+        "type": "checkbox",
+        "value": "3"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 21,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Duplex\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Duplex\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Twinhouse",
+      "attributes": {
+        "name": "Twinhouse",
+        "type": "checkbox",
+        "value": "6"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 22,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Twinhouse\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Twinhouse\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Penthouse",
+      "attributes": {
+        "name": "Penthouse",
+        "type": "checkbox",
+        "value": "4"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 23,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Penthouse\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Penthouse\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Retail",
+      "attributes": {
+        "name": "Retail",
+        "type": "checkbox",
+        "value": "10"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 24,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Retail\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Retail\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Medical",
+      "attributes": {
+        "name": "Medical",
+        "type": "checkbox",
+        "value": "13"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 25,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Medical\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Medical\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Studio",
+      "attributes": {
+        "name": "Studio",
+        "type": "checkbox",
+        "value": "9"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 26,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Studio\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Studio\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Loft",
+      "attributes": {
+        "name": "Loft",
+        "type": "checkbox",
+        "value": "23"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 27,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Loft\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Loft\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Family House",
+      "attributes": {
+        "name": "Family House",
+        "type": "checkbox",
+        "value": "12"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 28,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Family House\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Family House\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Pharmacy",
+      "attributes": {
+        "name": "Pharmacy",
+        "type": "checkbox",
+        "value": "40"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 29,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Pharmacy\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Pharmacy\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Building",
+      "attributes": {
+        "name": "Building",
+        "type": "checkbox",
+        "value": "43"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 30,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Building\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Building\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "Administrative",
+      "attributes": {
+        "name": "Administrative",
+        "type": "checkbox",
+        "value": "47"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 31,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"Administrative\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"Administrative\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "1",
+      "attributes": {
+        "name": "1 Bedrooms",
+        "type": "checkbox",
+        "value": "1"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 32,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"1\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"1 Bedrooms\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "2",
+      "attributes": {
+        "name": "2 Bedrooms",
+        "type": "checkbox",
+        "value": "2"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 33,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"2\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"2 Bedrooms\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "3",
+      "attributes": {
+        "name": "3 Bedrooms",
+        "type": "checkbox",
+        "value": "3"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 34,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"3\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"3 Bedrooms\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "4",
+      "attributes": {
+        "name": "4 Bedrooms",
+        "type": "checkbox",
+        "value": "4"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 35,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"4\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"4 Bedrooms\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "5+",
+      "attributes": {
+        "name": "5+ Bedrooms",
+        "type": "checkbox",
+        "value": "5+"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 36,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"5+\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"5+ Bedrooms\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "1",
+      "attributes": {
+        "name": "1 Bathrooms",
+        "type": "checkbox",
+        "value": "1"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 37,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"1\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"1 Bathrooms\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "2",
+      "attributes": {
+        "name": "2 Bathrooms",
+        "type": "checkbox",
+        "value": "2"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 38,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"2\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"2 Bathrooms\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "3",
+      "attributes": {
+        "name": "3 Bathrooms",
+        "type": "checkbox",
+        "value": "3"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 39,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"3\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"3 Bathrooms\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "4",
+      "attributes": {
+        "name": "4 Bathrooms",
+        "type": "checkbox",
+        "value": "4"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 40,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"4\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"4 Bathrooms\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "5+",
+      "attributes": {
+        "name": "5+ Bathrooms",
+        "type": "checkbox",
+        "value": "5+"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "checked": false,
+      "id": 41,
+      "locators": [
+        {
+          "strategy": "label",
+          "code": "get_by_label(\"5+\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_name",
+          "code": "locator(\"input[name=\\\"5+ Bathrooms\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "type": "text",
+        "placeholder": "Min Price"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 42,
+      "locators": [
+        {
+          "strategy": "placeholder",
+          "code": "get_by_placeholder(\"Min Price\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "type": "text",
+        "placeholder": "Max Price"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 43,
+      "locators": [
+        {
+          "strategy": "placeholder",
+          "code": "get_by_placeholder(\"Max Price\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "Apply",
+      "label": "",
+      "attributes": {
+        "data-test": "search-btn"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 44,
+      "locators": [
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"search-btn\\\"]\")",
+          "match_count": 4,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div > div:nth-of-type(3) > div:nth-of-type(3) > div > div > div > div:nth-of-type(3) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "Search",
+      "label": "",
+      "attributes": {
+        "data-test": "search-btn"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 45,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"Search\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"search-btn\\\"]\")",
+          "match_count": 4,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Nawy Keys",
+      "label": "",
+      "attributes": {
+        "href": "https://www.nawy.com/nawy-keys/properties"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 46,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://www.nawy.com/nawy-keys/properties\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Nawy Unlocked",
+      "label": "",
+      "attributes": {
+        "href": "https://unlocked.nawy.com/"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 47,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://unlocked.nawy.com/\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Developer Units",
+      "label": "",
+      "attributes": {
+        "href": "/search?category=property&page_number=1&sale_type=developer_sale"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 48,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search?category=property&page_number=1&sale_type=developer_sale\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Resale Units",
+      "label": "",
+      "attributes": {
+        "href": "https://www.nawy.com/resale"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 49,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://www.nawy.com/resale\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Offers",
+      "label": "",
+      "attributes": {
+        "href": "/real-estate-offers"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 50,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/real-estate-offers\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(2) > div > div > a:nth-of-type(5)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Nawy Now",
+      "label": "",
+      "attributes": {
+        "href": "/nawy-now"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 51,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Nawy Now\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/nawy-now\\\"]\")",
+          "match_count": 3,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(2) > div > div > a:nth-of-type(6)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Sell Your Unit",
+      "label": "",
+      "attributes": {
+        "href": "/sell-my-property"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 52,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/sell-my-property\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(2) > div > div > a:nth-of-type(7)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Nawy Shares",
+      "label": "",
+      "attributes": {
+        "href": "https://shares.nawy.com"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 53,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://shares.nawy.com\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "href": "https://nawyapp.go.link/8Pdhx",
+        "target": "_blank"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 54,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://nawyapp.go.link/8Pdhx\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "href": "/map/sahel-map"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 55,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/map/sahel-map\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "href": "/search?view=map"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 56,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search?view=map\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "href": "/real-estate-offers"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 57,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/real-estate-offers\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(3) > div > div > div > div:nth-of-type(1) > div:nth-of-type(4) > div > a\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Show All",
+      "label": "",
+      "attributes": {
+        "href": "/new-launches"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 58,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Show All\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/new-launches\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "href": "/compound/2726-the-lakes-sodic"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 59,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2726-the-lakes-sodic\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "href": "/compound/2138-vallis"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 60,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2138-vallis\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "href": "/compound/1891-alam-al-roum"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 61,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/1891-alam-al-roum\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "href": "/compound/2760-befit-living"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 62,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2760-befit-living\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "href": "/compound/2714-waterway-west"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 63,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2714-waterway-west\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Makadi Heights 114 Properties",
+      "label": "",
+      "attributes": {
+        "href": "/compound/454-makadi-heights"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 64,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/454-makadi-heights\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(5) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(1) > a\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "COLLAGE-Ivoire East 5 Properties",
+      "label": "",
+      "attributes": {
+        "href": "/compound/2711-collage-ivoire-east"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 65,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2711-collage-ivoire-east\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(5) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(2) > a\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Marina waterfront residences 3 Properties",
+      "label": "",
+      "attributes": {
+        "href": "/compound/2688-marina-waterfront-residences"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 66,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2688-marina-waterfront-residences\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(5) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > a\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "VYE SODIC 137 Properties",
+      "label": "",
+      "attributes": {
+        "href": "/compound/336-vye-sodic"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 67,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/336-vye-sodic\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(5) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(4) > a\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Noor Capital Gardens 127 Properties",
+      "label": "",
+      "attributes": {
+        "href": "/compound/622-noor-capital-gardens"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 68,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/622-noor-capital-gardens\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(5) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(5) > a\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Karmell New Zayed 70 Properties",
+      "label": "",
+      "attributes": {
+        "href": "/compound/402-karmell-new-zayed"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 69,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/402-karmell-new-zayed\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(5) > div > div:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(6) > a\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "One Hyde Park 34 Properties",
+      "label": "",
+      "attributes": {
+        "href": "/compound/2644-one-hyde-park"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 70,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2644-one-hyde-park\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Scenes 15 Properties",
+      "label": "",
+      "attributes": {
+        "href": "/compound/1391-scenes"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 71,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/1391-scenes\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "El Patio Jade 1 Properties",
+      "label": "",
+      "attributes": {
+        "href": "/compound/1954-el-patio-jade"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 72,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/1954-el-patio-jade\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Ras El Hekma Egypt 56 Properties",
+      "label": "",
+      "attributes": {
+        "href": "/compound/1493-ras-el-hekma-egypt"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 73,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/1493-ras-el-hekma-egypt\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "New Cairo 548 Compounds",
+      "label": "",
+      "attributes": {
+        "href": "/area/new-cairo",
+        "data-test": "area-dev-card"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 74,
+      "locators": [
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"area-dev-card\\\"]\")",
+          "match_count": 8,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/new-cairo\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(1) > div > div:nth-of-type(2) > a:nth-of-type(1)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "6th of October City 252 Compounds",
+      "label": "",
+      "attributes": {
+        "href": "/area/6th-of-october-city",
+        "data-test": "area-dev-card"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 75,
+      "locators": [
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"area-dev-card\\\"]\")",
+          "match_count": 8,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/6th-of-october-city\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(1) > div > div:nth-of-type(2) > a:nth-of-type(2)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "New Capital City 271 Compounds",
+      "label": "",
+      "attributes": {
+        "href": "/area/new-capital-city",
+        "data-test": "area-dev-card"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 76,
+      "locators": [
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"area-dev-card\\\"]\")",
+          "match_count": 8,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/new-capital-city\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(1) > div > div:nth-of-type(2) > a:nth-of-type(3)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Mostakbal City 64 Compounds",
+      "label": "",
+      "attributes": {
+        "href": "/area/mostakbal-city",
+        "data-test": "area-dev-card"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 77,
+      "locators": [
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"area-dev-card\\\"]\")",
+          "match_count": 8,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/mostakbal-city\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(1) > div > div:nth-of-type(2) > a:nth-of-type(4)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Ain Sokhna 86 Compounds",
+      "label": "",
+      "attributes": {
+        "href": "/area/ain-sokhna",
+        "data-test": "area-dev-card"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 78,
+      "locators": [
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"area-dev-card\\\"]\")",
+          "match_count": 8,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/ain-sokhna\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(1) > div > div:nth-of-type(2) > a:nth-of-type(5)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "North Coast-Sahel 325 Compounds",
+      "label": "",
+      "attributes": {
+        "href": "/area/north-coast-sahel",
+        "data-test": "area-dev-card"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 79,
+      "locators": [
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"area-dev-card\\\"]\")",
+          "match_count": 8,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/north-coast-sahel\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(1) > div > div:nth-of-type(2) > a:nth-of-type(6)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "El Gouna 42 Compounds",
+      "label": "",
+      "attributes": {
+        "href": "/area/el-gouna",
+        "data-test": "area-dev-card"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 80,
+      "locators": [
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"area-dev-card\\\"]\")",
+          "match_count": 8,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/el-gouna\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(1) > div > div:nth-of-type(2) > a:nth-of-type(7)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "New Heliopolis 17 Compounds",
+      "label": "",
+      "attributes": {
+        "href": "/area/new-heliopolis",
+        "data-test": "area-dev-card"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 81,
+      "locators": [
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"area-dev-card\\\"]\")",
+          "match_count": 8,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/new-heliopolis\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(1) > div > div:nth-of-type(2) > a:nth-of-type(8)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Launch Start Compare Delivery In 2029 New Capital City Apartment, Gardens 2 Beds",
+      "label": "",
+      "attributes": {
+        "href": "/compound/2867-gardens/property/139017-apartment-2-bedrooms-for-sale-in-gardens-in-new-capital-city-by-modon-egypt?recommended=true"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 82,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2867-gardens/property/139017-apartment-2-bedrooms-for-sale-in-gardens-in-new-capital-city-by-modon-egypt?recommended=true\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 83,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > a > div > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 84,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > a > div > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(1)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 85,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > a > div > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(2)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 86,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 87,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(1) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Ready to Move Northern Expansion, 6th of October City Apartment, Mountain View i",
+      "label": "",
+      "attributes": {
+        "href": "/compound/422-mountain-view-icity-october/property/136786-apartment-for-sale-in-mountain-view-icity-october-with-2-bedrooms-in-northern-expansion-by-mountain-view?recommended=true"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 88,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/422-mountain-view-icity-october/property/136786-apartment-for-sale-in-mountain-view-icity-october-with-2-bedrooms-in-northern-expansion-by-mountain-view?recommended=true\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 89,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 90,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(1)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 91,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(2)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 92,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 93,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(2) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Launch New Capital City Duplex, Gardens 165 m² 114,000 Monthly / 10 Years 4,800,",
+      "label": "",
+      "attributes": {
+        "href": "/compound/2867-gardens/property/139019-duplex-for-sale-in-gardens-in-new-capital-city-by-modon-egypt?recommended=true"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 94,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2867-gardens/property/139019-duplex-for-sale-in-gardens-in-new-capital-city-by-modon-egypt?recommended=true\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 95,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(3) > a > div > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 96,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(3) > a > div > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(1)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 97,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(3) > a > div > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > button:nth-of-type(2)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 98,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(3) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 99,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(3) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Near Delivery Northern Expansion, 6th of October City Apartment, Mountain View i",
+      "label": "",
+      "attributes": {
+        "href": "/compound/422-mountain-view-icity-october/property/132683-apartment-for-sale-in-mountain-view-icity-october-with-3-bedrooms-in-northern-expansion-by-mountain-view?recommended=true"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 100,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/422-mountain-view-icity-october/property/132683-apartment-for-sale-in-mountain-view-icity-october-with-3-bedrooms-in-northern-expansion-by-mountain-view?recommended=true\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 101,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(4) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 102,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(4) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(1)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 103,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(4) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(2)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 104,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(4) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 105,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(4) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Near Delivery Mostakbal City, New Cairo Apartment, Aliva Mountain View Mostakbal",
+      "label": "",
+      "attributes": {
+        "href": "/compound/996-aliva-mountain-view-mostakbal-city/property/137478-apartment-for-sale-in-aliva-mountain-view-mostakbal-city-with-3-bedrooms-in-mostakbal-city-by-mountain-view?recommended=true"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 106,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/996-aliva-mountain-view-mostakbal-city/property/137478-apartment-for-sale-in-aliva-mountain-view-mostakbal-city-with-3-bedrooms-in-mostakbal-city-by-mountain-view?recommended=true\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 107,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(5) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 108,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(5) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(1)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 109,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(5) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(2)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 110,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(5) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 111,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(5) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Delivery In 2030 New Heliopolis Apartment, The Lakes Sodic East 2 Beds 4 Baths 1",
+      "label": "",
+      "attributes": {
+        "href": "/compound/2726-the-lakes-sodic/property/139926-apartment-for-sale-in-the-lakes-sodic-east-with-21-bedrooms-in-new-heliopolis-by-sodic?recommended=true"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 112,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2726-the-lakes-sodic/property/139926-apartment-for-sale-in-the-lakes-sodic-east-with-21-bedrooms-in-new-heliopolis-by-sodic?recommended=true\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 113,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(6) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 114,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(6) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(1)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 115,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(6) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(2)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 116,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(6) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 117,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(6) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Delivery In 2030 Ras El Hekma, North Coast-Sahel Twinhouse, Mar Bay - Ras El Hek",
+      "label": "",
+      "attributes": {
+        "href": "/compound/1212-mar-bay-ras-el-hekma/property/120899-twinhouse-for-sale-in-mar-bay-ras-el-hekma-with-4-bedrooms?recommended=true"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 118,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/1212-mar-bay-ras-el-hekma/property/120899-twinhouse-for-sale-in-mar-bay-ras-el-hekma-with-4-bedrooms?recommended=true\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 119,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(7) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 120,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(7) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(1)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "card-action-icon",
+      "attributes": {
+        "aria-label": "card-action-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 121,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"card-action-icon\", exact=True)",
+          "match_count": 21,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(7) > a > div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > button:nth-of-type(2)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 122,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(7) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(1) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "button-icon",
+      "attributes": {
+        "aria-label": "button-icon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 123,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"button-icon\", exact=True)",
+          "match_count": 14,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"__next\\\"] > div:nth-of-type(1) > div:nth-of-type(5) > div > div:nth-of-type(6) > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div:nth-of-type(7) > a > div > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "href": "/"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 124,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/\\\"]\")",
+          "match_count": 4,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"footer\\\"] > div > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "facebook-link",
+      "attributes": {
+        "aria-label": "facebook-link",
+        "href": "https://www.facebook.com/nawyrealestate",
+        "target": "_blank"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 125,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"facebook-link\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://www.facebook.com/nawyrealestate\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "linkedin-link",
+      "attributes": {
+        "aria-label": "linkedin-link",
+        "href": "https://www.linkedin.com/company/nawyestate/mycompany/",
+        "target": "_blank"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 126,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"linkedin-link\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://www.linkedin.com/company/nawyestate/mycompany/\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "youtube-link",
+      "attributes": {
+        "aria-label": "youtube-link",
+        "href": "https://www.youtube.com/channel/UCAtydzjr9JcWM4UNXU1AXig",
+        "target": "_blank"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 127,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"youtube-link\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://www.youtube.com/channel/UCAtydzjr9JcWM4UNXU1AXig\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "instagram-link",
+      "attributes": {
+        "aria-label": "instagram-link",
+        "href": "https://www.instagram.com/nawyrealestate/",
+        "target": "_blank"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 128,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"instagram-link\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://www.instagram.com/nawyrealestate/\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "",
+      "label": "twitter-link",
+      "attributes": {
+        "aria-label": "twitter-link",
+        "href": "https://x.com/nawyegypt",
+        "target": "_blank"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 129,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"twitter-link\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://x.com/nawyegypt\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "New Cairo",
+      "label": "New Cairo",
+      "attributes": {
+        "aria-label": "New Cairo",
+        "href": "/area/new-cairo"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 130,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"New Cairo\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/new-cairo\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "6th of October City",
+      "label": "6th of October City",
+      "attributes": {
+        "aria-label": "6th of October City",
+        "href": "/area/6th-of-october-city"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 131,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"6th of October City\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/6th-of-october-city\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "New Capital City",
+      "label": "New Capital City",
+      "attributes": {
+        "aria-label": "New Capital City",
+        "href": "/area/new-capital-city"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 132,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"New Capital City\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/new-capital-city\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Mostakbal City",
+      "label": "Mostakbal City",
+      "attributes": {
+        "aria-label": "Mostakbal City",
+        "href": "/area/mostakbal-city"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 133,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Mostakbal City\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/mostakbal-city\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Ain Sokhna",
+      "label": "Ain Sokhna",
+      "attributes": {
+        "aria-label": "Ain Sokhna",
+        "href": "/area/ain-sokhna"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 134,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Ain Sokhna\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/ain-sokhna\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "North Coast-Sahel",
+      "label": "North Coast-Sahel",
+      "attributes": {
+        "aria-label": "North Coast-Sahel",
+        "href": "/area/north-coast-sahel"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 135,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"North Coast-Sahel\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/north-coast-sahel\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "New Heliopolis",
+      "label": "New Heliopolis",
+      "attributes": {
+        "aria-label": "New Heliopolis",
+        "href": "/area/new-heliopolis"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 136,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"New Heliopolis\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/new-heliopolis\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "El Gouna",
+      "label": "El Gouna",
+      "attributes": {
+        "aria-label": "El Gouna",
+        "href": "/area/el-gouna"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 137,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"El Gouna\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/area/el-gouna\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Makadi Heights",
+      "label": "Makadi Heights",
+      "attributes": {
+        "aria-label": "Makadi Heights",
+        "href": "/compound/454-makadi-heights"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 138,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Makadi Heights\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/454-makadi-heights\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "COLLAGE-Ivoire East",
+      "label": "COLLAGE-Ivoire East",
+      "attributes": {
+        "aria-label": "COLLAGE-Ivoire East",
+        "href": "/compound/2711-collage-ivoire-east"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 139,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"COLLAGE-Ivoire East\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2711-collage-ivoire-east\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Yemm Views",
+      "label": "Yemm Views",
+      "attributes": {
+        "aria-label": "Yemm Views",
+        "href": "/compound/2691-yemm-views"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 140,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Yemm Views\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2691-yemm-views\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Marina waterfront residences",
+      "label": "Marina waterfront residences",
+      "attributes": {
+        "aria-label": "Marina waterfront residences",
+        "href": "/compound/2688-marina-waterfront-residences"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 141,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Marina waterfront residences\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2688-marina-waterfront-residences\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Xchange Hap Town",
+      "label": "Xchange Hap Town",
+      "attributes": {
+        "aria-label": "Xchange Hap Town",
+        "href": "/compound/2269-haptown-commercial"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 142,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Xchange Hap Town\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/2269-haptown-commercial\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "VYE SODIC",
+      "label": "VYE SODIC",
+      "attributes": {
+        "aria-label": "VYE SODIC",
+        "href": "/compound/336-vye-sodic"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 143,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"VYE SODIC\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/336-vye-sodic\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Noor Capital Gardens",
+      "label": "Noor Capital Gardens",
+      "attributes": {
+        "aria-label": "Noor Capital Gardens",
+        "href": "/compound/622-noor-capital-gardens"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 144,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Noor Capital Gardens\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/622-noor-capital-gardens\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Karmell New Zayed",
+      "label": "Karmell New Zayed",
+      "attributes": {
+        "aria-label": "Karmell New Zayed",
+        "href": "/compound/402-karmell-new-zayed"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 145,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Karmell New Zayed\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/compound/402-karmell-new-zayed\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "SODIC",
+      "label": "SODIC",
+      "attributes": {
+        "aria-label": "SODIC",
+        "href": "/developer/8-sodic"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 146,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"SODIC\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/developer/8-sodic\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Hyde Park",
+      "label": "Hyde Park",
+      "attributes": {
+        "aria-label": "Hyde Park",
+        "href": "/developer/15-hyde-park"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 147,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Hyde Park\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/developer/15-hyde-park\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Mountain View",
+      "label": "Mountain View",
+      "attributes": {
+        "aria-label": "Mountain View",
+        "href": "/developer/6-mountain-view"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 148,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Mountain View\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/developer/6-mountain-view\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Ora Developers",
+      "label": "Ora Developers",
+      "attributes": {
+        "aria-label": "Ora Developers",
+        "href": "/developer/85-ora-developers"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 149,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Ora Developers\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/developer/85-ora-developers\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Modon",
+      "label": "Modon",
+      "attributes": {
+        "aria-label": "Modon ",
+        "href": "/developer/439-modon"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 150,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Modon\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/developer/439-modon\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Qatari Diar",
+      "label": "Qatari Diar",
+      "attributes": {
+        "aria-label": "Qatari Diar",
+        "href": "/developer/226-qatari-diar"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 151,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Qatari Diar\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/developer/226-qatari-diar\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Marakez",
+      "label": "Marakez",
+      "attributes": {
+        "aria-label": "Marakez",
+        "href": "/developer/65-marakez"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 152,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Marakez\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/developer/65-marakez\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Orascom Development Egypt",
+      "label": "Orascom Development Egypt",
+      "attributes": {
+        "aria-label": "Orascom Development Egypt",
+        "href": "/developer/35-orascom-development-egypt"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 153,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Orascom Development Egypt\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/developer/35-orascom-development-egypt\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Apartments for Sale in New Cairo",
+      "label": "Apartments for Sale in New Cairo",
+      "attributes": {
+        "aria-label": "Apartments for Sale in New Cairo",
+        "href": "/search/apartments-for-sale-in-new-cairo"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 154,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Apartments for Sale in New Cairo\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/apartments-for-sale-in-new-cairo\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Villas for Sale in New Cairo",
+      "label": "Villas for Sale in New Cairo",
+      "attributes": {
+        "aria-label": "Villas for Sale in New Cairo",
+        "href": "/search/villas-for-sale-in-new-cairo"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 155,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Villas for Sale in New Cairo\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/villas-for-sale-in-new-cairo\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Duplexes for Sale in New Cairo",
+      "label": "Duplexes for Sale in New Cairo",
+      "attributes": {
+        "aria-label": "Duplexes for Sale in New Cairo",
+        "href": "/search/duplexes-for-sale-in-new-cairo"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 156,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Duplexes for Sale in New Cairo\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/duplexes-for-sale-in-new-cairo\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Townhouses for Sale in New Cairo",
+      "label": "Townhouses for Sale in New Cairo",
+      "attributes": {
+        "aria-label": "Townhouses for Sale in New Cairo",
+        "href": "/search/townhouses-for-sale-in-new-cairo"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 157,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Townhouses for Sale in New Cairo\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/townhouses-for-sale-in-new-cairo\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Twinhouses for Sale in New Cairo",
+      "label": "Twinhouses for Sale in New Cairo",
+      "attributes": {
+        "aria-label": "Twinhouses for Sale in New Cairo",
+        "href": "/search/twinhouses-for-sale-in-new-cairo"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 158,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Twinhouses for Sale in New Cairo\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/twinhouses-for-sale-in-new-cairo\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Penthouses for Sale in New Cairo",
+      "label": "Penthouses for Sale in New Cairo",
+      "attributes": {
+        "aria-label": "Penthouses for Sale in New Cairo",
+        "href": "/search/penthouses-for-sale-in-new-cairo"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 159,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Penthouses for Sale in New Cairo\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/penthouses-for-sale-in-new-cairo\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Apartments for Sale in 6th of October City",
+      "label": "Apartments for Sale in 6th of October City",
+      "attributes": {
+        "aria-label": "Apartments for Sale in 6th of October City",
+        "href": "/search/apartments-for-sale-in-6th-of-october-city"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 160,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Apartments for Sale in 6th of October City\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/apartments-for-sale-in-6th-of-october-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Villas for Sale in 6th of October City",
+      "label": "Villas for Sale in 6th of October City",
+      "attributes": {
+        "aria-label": "Villas for Sale in 6th of October City",
+        "href": "/search/villas-for-sale-in-6th-of-october-city"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 161,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Villas for Sale in 6th of October City\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/villas-for-sale-in-6th-of-october-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "View More Searches",
+      "label": "",
+      "attributes": {
+        "type": "button",
+        "data-test": "footer-more-button-properties",
+        "aria-expanded": "false"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 162,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"View More Searches\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_data_test",
+          "code": "locator(\"[data-test=\\\"footer-more-button-properties\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "",
+      "label": "Close",
+      "attributes": {
+        "type": "button",
+        "aria-label": "Close"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 163,
+      "locators": [
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"footer-more-properties\\\"] > div > div:nth-of-type(1) > button\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Duplexes for Sale in 6th of October City",
+      "label": "Duplexes for Sale in 6th of October City",
+      "attributes": {
+        "aria-label": "Duplexes for Sale in 6th of October City",
+        "href": "/search/duplexes-for-sale-in-6th-of-october-city"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 164,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/duplexes-for-sale-in-6th-of-october-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Townhouses for Sale in 6th of October City",
+      "label": "Townhouses for Sale in 6th of October City",
+      "attributes": {
+        "aria-label": "Townhouses for Sale in 6th of October City",
+        "href": "/search/townhouses-for-sale-in-6th-of-october-city"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 165,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/townhouses-for-sale-in-6th-of-october-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Twinhouses for Sale in 6th of October City",
+      "label": "Twinhouses for Sale in 6th of October City",
+      "attributes": {
+        "aria-label": "Twinhouses for Sale in 6th of October City",
+        "href": "/search/twinhouses-for-sale-in-6th-of-october-city"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 166,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/twinhouses-for-sale-in-6th-of-october-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Penthouses for Sale in 6th of October City",
+      "label": "Penthouses for Sale in 6th of October City",
+      "attributes": {
+        "aria-label": "Penthouses for Sale in 6th of October City",
+        "href": "/search/penthouses-for-sale-in-6th-of-october-city"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 167,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/penthouses-for-sale-in-6th-of-october-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Apartments for Sale in New Capital City",
+      "label": "Apartments for Sale in New Capital City",
+      "attributes": {
+        "aria-label": "Apartments for Sale in New Capital City",
+        "href": "/search/apartments-for-sale-in-new-capital-city"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 168,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/apartments-for-sale-in-new-capital-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Villas for Sale in New Capital City",
+      "label": "Villas for Sale in New Capital City",
+      "attributes": {
+        "aria-label": "Villas for Sale in New Capital City",
+        "href": "/search/villas-for-sale-in-new-capital-city"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 169,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/villas-for-sale-in-new-capital-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Duplexes for Sale in New Capital City",
+      "label": "Duplexes for Sale in New Capital City",
+      "attributes": {
+        "aria-label": "Duplexes for Sale in New Capital City",
+        "href": "/search/duplexes-for-sale-in-new-capital-city"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 170,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/duplexes-for-sale-in-new-capital-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Townhouses for Sale in New Capital City",
+      "label": "Townhouses for Sale in New Capital City",
+      "attributes": {
+        "aria-label": "Townhouses for Sale in New Capital City",
+        "href": "/search/townhouses-for-sale-in-new-capital-city"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 171,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/townhouses-for-sale-in-new-capital-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Twinhouses for Sale in New Capital City",
+      "label": "Twinhouses for Sale in New Capital City",
+      "attributes": {
+        "aria-label": "Twinhouses for Sale in New Capital City",
+        "href": "/search/twinhouses-for-sale-in-new-capital-city"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 172,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/twinhouses-for-sale-in-new-capital-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Penthouses for Sale in New Capital City",
+      "label": "Penthouses for Sale in New Capital City",
+      "attributes": {
+        "aria-label": "Penthouses for Sale in New Capital City",
+        "href": "/search/penthouses-for-sale-in-new-capital-city"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 173,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/penthouses-for-sale-in-new-capital-city\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Apartments for Sale in El Sheikh Zayed",
+      "label": "Apartments for Sale in El Sheikh Zayed",
+      "attributes": {
+        "aria-label": "Apartments for Sale in El Sheikh Zayed",
+        "href": "/search/apartments-for-sale-in-el-sheikh-zayed"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 174,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/apartments-for-sale-in-el-sheikh-zayed\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Villas for Sale in El Sheikh Zayed",
+      "label": "Villas for Sale in El Sheikh Zayed",
+      "attributes": {
+        "aria-label": "Villas for Sale in El Sheikh Zayed",
+        "href": "/search/villas-for-sale-in-el-sheikh-zayed"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 175,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/villas-for-sale-in-el-sheikh-zayed\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Duplexes for Sale in El Sheikh Zayed",
+      "label": "Duplexes for Sale in El Sheikh Zayed",
+      "attributes": {
+        "aria-label": "Duplexes for Sale in El Sheikh Zayed",
+        "href": "/search/duplexes-for-sale-in-el-sheikh-zayed"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 176,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/duplexes-for-sale-in-el-sheikh-zayed\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Townhouses for Sale in El Sheikh Zayed",
+      "label": "Townhouses for Sale in El Sheikh Zayed",
+      "attributes": {
+        "aria-label": "Townhouses for Sale in El Sheikh Zayed",
+        "href": "/search/townhouses-for-sale-in-el-sheikh-zayed"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 177,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/townhouses-for-sale-in-el-sheikh-zayed\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Twinhouses for Sale in El Sheikh Zayed",
+      "label": "Twinhouses for Sale in El Sheikh Zayed",
+      "attributes": {
+        "aria-label": "Twinhouses for Sale in El Sheikh Zayed",
+        "href": "/search/twinhouses-for-sale-in-el-sheikh-zayed"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 178,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/twinhouses-for-sale-in-el-sheikh-zayed\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Penthouses for Sale in El Sheikh Zayed",
+      "label": "Penthouses for Sale in El Sheikh Zayed",
+      "attributes": {
+        "aria-label": "Penthouses for Sale in El Sheikh Zayed",
+        "href": "/search/penthouses-for-sale-in-el-sheikh-zayed"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 179,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/penthouses-for-sale-in-el-sheikh-zayed\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Apartments for Sale in North Coast-Sahel",
+      "label": "Apartments for Sale in North Coast-Sahel",
+      "attributes": {
+        "aria-label": "Apartments for Sale in North Coast-Sahel",
+        "href": "/search/apartments-for-sale-in-north-coast-sahel"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 180,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/apartments-for-sale-in-north-coast-sahel\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Villas for Sale in North Coast-Sahel",
+      "label": "Villas for Sale in North Coast-Sahel",
+      "attributes": {
+        "aria-label": "Villas for Sale in North Coast-Sahel",
+        "href": "/search/villas-for-sale-in-north-coast-sahel"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 181,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/villas-for-sale-in-north-coast-sahel\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Duplexes for Sale in North Coast-Sahel",
+      "label": "Duplexes for Sale in North Coast-Sahel",
+      "attributes": {
+        "aria-label": "Duplexes for Sale in North Coast-Sahel",
+        "href": "/search/duplexes-for-sale-in-north-coast-sahel"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 182,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/duplexes-for-sale-in-north-coast-sahel\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Townhouses for Sale in North Coast-Sahel",
+      "label": "Townhouses for Sale in North Coast-Sahel",
+      "attributes": {
+        "aria-label": "Townhouses for Sale in North Coast-Sahel",
+        "href": "/search/townhouses-for-sale-in-north-coast-sahel"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 183,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/townhouses-for-sale-in-north-coast-sahel\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Twinhouses for Sale in North Coast-Sahel",
+      "label": "Twinhouses for Sale in North Coast-Sahel",
+      "attributes": {
+        "aria-label": "Twinhouses for Sale in North Coast-Sahel",
+        "href": "/search/twinhouses-for-sale-in-north-coast-sahel"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 184,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/twinhouses-for-sale-in-north-coast-sahel\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Penthouses for Sale in North Coast-Sahel",
+      "label": "Penthouses for Sale in North Coast-Sahel",
+      "attributes": {
+        "aria-label": "Penthouses for Sale in North Coast-Sahel",
+        "href": "/search/penthouses-for-sale-in-north-coast-sahel"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 185,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/penthouses-for-sale-in-north-coast-sahel\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Chalets for Sale in North Coast-Sahel",
+      "label": "Chalets for Sale in North Coast-Sahel",
+      "attributes": {
+        "aria-label": "Chalets for Sale in North Coast-Sahel",
+        "href": "/search/chalets-for-sale-in-north-coast-sahel"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 186,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/chalets-for-sale-in-north-coast-sahel\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Apartments for Sale in El Gouna",
+      "label": "Apartments for Sale in El Gouna",
+      "attributes": {
+        "aria-label": "Apartments for Sale in El Gouna",
+        "href": "/search/apartments-for-sale-in-el-gouna"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 187,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/apartments-for-sale-in-el-gouna\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Villas for Sale in El Gouna",
+      "label": "Villas for Sale in El Gouna",
+      "attributes": {
+        "aria-label": "Villas for Sale in El Gouna",
+        "href": "/search/villas-for-sale-in-el-gouna"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 188,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/villas-for-sale-in-el-gouna\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Chalets for Sale in El Gouna",
+      "label": "Chalets for Sale in El Gouna",
+      "attributes": {
+        "aria-label": "Chalets for Sale in El Gouna",
+        "href": "/search/chalets-for-sale-in-el-gouna"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 189,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/chalets-for-sale-in-el-gouna\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Apartments for Sale in Ain Sokhna",
+      "label": "Apartments for Sale in Ain Sokhna",
+      "attributes": {
+        "aria-label": "Apartments for Sale in Ain Sokhna",
+        "href": "/search/apartments-for-sale-in-ain-sokhna"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 190,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/apartments-for-sale-in-ain-sokhna\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Villas for Sale in Ain Sokhna",
+      "label": "Villas for Sale in Ain Sokhna",
+      "attributes": {
+        "aria-label": "Villas for Sale in Ain Sokhna",
+        "href": "/search/villas-for-sale-in-ain-sokhna"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 191,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/villas-for-sale-in-ain-sokhna\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Duplexes for Sale in Ain Sokhna",
+      "label": "Duplexes for Sale in Ain Sokhna",
+      "attributes": {
+        "aria-label": "Duplexes for Sale in Ain Sokhna",
+        "href": "/search/duplexes-for-sale-in-ain-sokhna"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 192,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/duplexes-for-sale-in-ain-sokhna\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Townhouses for Sale in Ain Sokhna",
+      "label": "Townhouses for Sale in Ain Sokhna",
+      "attributes": {
+        "aria-label": "Townhouses for Sale in Ain Sokhna",
+        "href": "/search/townhouses-for-sale-in-ain-sokhna"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 193,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/townhouses-for-sale-in-ain-sokhna\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Twinhouses for Sale in Ain Sokhna",
+      "label": "Twinhouses for Sale in Ain Sokhna",
+      "attributes": {
+        "aria-label": "Twinhouses for Sale in Ain Sokhna",
+        "href": "/search/twinhouses-for-sale-in-ain-sokhna"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 194,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/twinhouses-for-sale-in-ain-sokhna\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Penthouses for Sale in Ain Sokhna",
+      "label": "Penthouses for Sale in Ain Sokhna",
+      "attributes": {
+        "aria-label": "Penthouses for Sale in Ain Sokhna",
+        "href": "/search/penthouses-for-sale-in-ain-sokhna"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 195,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/penthouses-for-sale-in-ain-sokhna\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Chalets for Sale in Ain Sokhna",
+      "label": "Chalets for Sale in Ain Sokhna",
+      "attributes": {
+        "aria-label": "Chalets for Sale in Ain Sokhna",
+        "href": "/search/chalets-for-sale-in-ain-sokhna"
+      },
+      "visible": false,
+      "enabled": true,
+      "form": null,
+      "id": 196,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search/chalets-for-sale-in-ain-sokhna\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Home",
+      "label": "",
+      "attributes": {
+        "href": "/"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 197,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Home\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/\\\"]\")",
+          "match_count": 4,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"footer\\\"] > div > div:nth-of-type(2) > div:nth-of-type(2) > div > a:nth-of-type(1)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Search",
+      "label": "",
+      "attributes": {
+        "href": "/search"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 198,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Search\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/search\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"footer\\\"] > div > div:nth-of-type(2) > div:nth-of-type(2) > div > a:nth-of-type(2)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Blog",
+      "label": "",
+      "attributes": {
+        "href": "https://www.nawy.com/blog/"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 199,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Blog\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"https://www.nawy.com/blog/\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "About",
+      "label": "",
+      "attributes": {
+        "href": "/about-us"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 200,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"About\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/about-us\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"footer\\\"] > div > div:nth-of-type(2) > div:nth-of-type(2) > div > a:nth-of-type(4)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Contact",
+      "label": "",
+      "attributes": {
+        "href": "/contact"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 201,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Contact\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/contact\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"footer\\\"] > div > div:nth-of-type(2) > div:nth-of-type(2) > div > a:nth-of-type(5)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Terms Of Use",
+      "label": "",
+      "attributes": {
+        "href": "/terms"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 202,
+      "locators": [
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/terms\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Privacy Policy",
+      "label": "",
+      "attributes": {
+        "href": "/privacy-policy"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 203,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Privacy Policy\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/privacy-policy\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "How It Works",
+      "label": "",
+      "attributes": {
+        "href": "/how-it-works"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 204,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"How It Works\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/how-it-works\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Launches",
+      "label": "",
+      "attributes": {
+        "href": "/new-launches"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 205,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Launches\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/new-launches\\\"]\")",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "a",
+      "text": "Nawy Now",
+      "label": "",
+      "attributes": {
+        "href": "/nawy-now"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 206,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"Nawy Now\", exact=True)",
+          "match_count": 2,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"/nawy-now\\\"]\")",
+          "match_count": 3,
+          "unique": false,
+          "stable": true
+        },
+        {
+          "strategy": "css_path",
+          "code": "locator(\"[id=\\\"footer\\\"] > div > div:nth-of-type(2) > div:nth-of-type(2) > div > a:nth-of-type(10)\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": false
+        }
+      ]
+    }
+  ]
+}

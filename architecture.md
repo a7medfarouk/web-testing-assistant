@@ -69,7 +69,7 @@ Every inspection is saved, so later steps can refer to what was actually observe
 ## Resources and limits
 
 - **Model:** `qwen2.5-coder:7b`, run locally by Ollama. No API key and no paid service.
-- **Hardware used for the demo:** _fill in CPU, RAM and GPU here._
+- **Hardware used for the demo:** _Ryzen 7735 hs CPU, NVIDIA 4060 RTX laptop GPU, 16 GB RAM._
 - **Model settings:** temperature 0.2, no streaming, request timeout 300 s.
 - **Measured per call:** prompt tokens and output tokens (counted by Ollama) and response time, saved in `data/model_calls.jsonl`. Response time covers the model request only, not browser time.
 - **Runner:** the scan stops at 300 elements, text and labels are cut at 80 characters, and the runner waits up to 5 s for the page to go idle. The backend waits up to 120 s for the runner.
