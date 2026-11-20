@@ -5,15 +5,20 @@ Usage (quick test):
     uv run python runner/inspector.py https://example.com "#login-form"
     uv run python runner/inspector.py https://example.com --headless   # no window (CI / servers)
 
+The report is saved as JSON in the `inspection_results/` folder at the project root.
+
 The result is plain JSON-serialisable data. Everything in it was OBSERVED on the
 page (or verified against the live page, for locators). Nothing is guessed.
 """
 
 import argparse
 import json
+import re
 import sys
 from datetime import datetime, timezone
+from pathlib import Path
 from time import perf_counter
+from urllib.parse import urlparse
 
 from playwright.sync_api import Error as PlaywrightError
 from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
@@ -22,6 +27,45 @@ from playwright.sync_api import sync_playwright
 MAX_ELEMENTS = 300  # cap per scan so huge pages stay fast and fit in a model prompt
 NETWORK_IDLE_MS = 5000  # best-effort wait so script-rendered pages (SPAs) can finish
 TEXT_LIMIT = 80  # text/labels are cut here; locators on cut text are skipped
+RESULTS_DIR = (
+    Path(__file__).resolve().parent.parent / "inspection_results"
+)  # reports go here
+
+# Printed at the very top of every report so a reader knows how to read "locators".
+LOCATORS_EXPLANATION = {
+    "what_locators_are": (
+        "Each element has a 'locators' list: the candidate Playwright locators found for "
+        "that element, best first. Every candidate was run against the live page, so "
+        "'match_count' is what was actually observed, not a guess. Candidates that matched "
+        "nothing were dropped. An empty list means no usable locator was found."
+    ),
+    "fields": {
+        "strategy": (
+            "How the locator finds the element: test_id (data-testid), role (ARIA role + "
+            "accessible name), label (form label text), placeholder, text (visible text, "
+            "only for elements with no ARIA role), css_id (id attribute), css_data_test / "
+            "css_data_cy / css_data_qa (other test attributes), css_name (name attribute), "
+            "css_href (link target), css_path (position in the page, last resort)."
+        ),
+        "code": "The Playwright (Python) call that builds the locator, e.g. page.<code>.",
+        "match_count": "How many elements on the WHOLE page this locator matched when scanned.",
+        "unique": (
+            "true when match_count is exactly 1. Only a unique locator is safe for an "
+            "action (click, fill) because it can only hit this one element. false means it "
+            "also matches other elements and would be ambiguous."
+        ),
+        "stable": (
+            "true when the locator relies on meaningful page content (test id, role/name, "
+            "label, id, ...) and should survive layout changes. false (only css_path) means "
+            "it relies on the element's position in the page, so adding, removing or moving "
+            "elements can break it or make it point at the wrong element."
+        ),
+    },
+    "how_to_choose": (
+        "Prefer the first locator with unique=true and stable=true. If only a stable=false "
+        "locator is unique, treat it as fragile and ask the tester to confirm."
+    ),
+}
 
 # JavaScript that runs INSIDE the page. It only reads the page and returns plain data.
 # `scope` is an optional CSS selector that limits the scan to one part of the page.
@@ -350,6 +394,7 @@ def inspect_page(url, scope=None, headless=False):
 
             status = response.status if response else None
             result = {
+                "about_locators": LOCATORS_EXPLANATION,  # keep first: top of every report
                 "url": page.url,  # final URL, after any redirects
                 "requested_url": url,
                 "title": page.title(),
@@ -393,6 +438,16 @@ def scan_warnings(page, status, scope, total, elements):
     return warnings
 
 
+def save_report(result, folder=RESULTS_DIR):
+    """Write the report to `folder` (created if needed) and return the file path."""
+    folder.mkdir(parents=True, exist_ok=True)
+    host = re.sub(r"[^A-Za-z0-9.-]+", "_", urlparse(result["url"]).netloc) or "page"
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    path = folder / f"{host}_{stamp}.json"
+    path.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
+    return path
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("url")
@@ -404,10 +459,9 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")  # so emojis print on Windows
-    print(
-        json.dumps(
-            inspect_page(args.url, args.scope, args.headless),
-            indent=2,
-            ensure_ascii=False,
-        )
-    )
+    report = inspect_page(args.url, args.scope, args.headless)
+    saved = save_report(report)
+    print(f"{report['element_count']} elements from {report['url']}")
+    for warning in report["warnings"]:
+        print(f"warning: {warning}")
+    print(f"Report saved to: {saved}")
