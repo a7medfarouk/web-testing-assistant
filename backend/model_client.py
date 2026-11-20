@@ -3,7 +3,7 @@ from time import perf_counter
 
 import httpx
 
-from backend.config import HARDWARE, OLLAMA_MODEL, OLLAMA_URL
+from backend.config import OLLAMA_MODEL, OLLAMA_URL
 
 KEY_ATTRIBUTES = ("id", "name", "type", "placeholder", "aria-label", "href", "role", "data-testid", "required")
 
@@ -87,7 +87,6 @@ def ask_model(goal, page, elements):
     usage = {
         "model": OLLAMA_MODEL,
         "model_digest": model_digest(),
-        "hardware": HARDWARE,
         "prompt_tokens": data.get("prompt_eval_count"),
         "output_tokens": data.get("eval_count"),
         "response_time_s": round(seconds, 2),

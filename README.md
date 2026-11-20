@@ -70,7 +70,6 @@ Copy `.env.example` to `.env` to override the defaults.
 |---|---|---|
 | `OLLAMA_MODEL` | `qwen2.5-coder:7b` | Model to pull, warm up and call |
 | `OLLAMA_HOME` | `~/.ollama` | Folder holding the Ollama model store |
-| `HARDWARE` | `not set` | Your hardware, written to the model usage log (e.g. `Ryzen 5, 16 GB RAM, RTX 3050`) |
 | `BACKEND_PORT` | `8000` | Host port for the UI and API |
 | `OLLAMA_PORT` | `11435` | Host port for Ollama (11435 avoids clashing with a host install) |
 | `RUNNER_URL` | `http://localhost:8001` | Where the backend finds the runner (set by Docker) |
@@ -94,7 +93,7 @@ Everything is observed on the page, nothing is guessed.
 Everything the assistant saves goes to `data/` (a mounted folder in Docker):
 
 - `data/inspections/<host>_<timestamp>.json`: every inspection, exactly as the runner returned it. The model only ever sees elements from these files.
-- `data/model_calls.jsonl`: one line per model call with the model, hardware, prompt and output tokens, and response time. Token counts come from Ollama.
+- `data/model_calls.jsonl`: one line per model call with the model, prompt and output tokens, and response time. Token counts come from Ollama.
 
 ## Status
 

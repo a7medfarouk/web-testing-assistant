@@ -1,0 +1,151 @@
+{
+  "about_locators": {
+    "what_locators_are": "Each element has a 'locators' list: the candidate Playwright locators found for that element, best first. Every candidate was run against the live page, so 'match_count' is what was actually observed, not a guess. Candidates that matched nothing were dropped. An empty list means no usable locator was found.",
+    "fields": {
+      "strategy": "How the locator finds the element: test_id (data-testid), role (ARIA role + accessible name), label (form label text), placeholder, text (visible text, only for elements with no ARIA role), css_id (id attribute), css_data_test / css_data_cy / css_data_qa (other test attributes), css_name (name attribute), css_href (link target), css_path (position in the page, last resort).",
+      "code": "The Playwright (Python) call that builds the locator, e.g. page.<code>.",
+      "match_count": "How many elements on the WHOLE page this locator matched when scanned.",
+      "unique": "true when match_count is exactly 1. Only a unique locator is safe for an action (click, fill) because it can only hit this one element. false means it also matches other elements and would be ambiguous.",
+      "stable": "true when the locator relies on meaningful page content (test id, role/name, label, id, ...) and should survive layout changes. false (only css_path) means it relies on the element's position in the page, so adding, removing or moving elements can break it or make it point at the wrong element."
+    },
+    "how_to_choose": "Prefer the first locator with unique=true and stable=true. If only a stable=false locator is unique, treat it as fragile and ask the tester to confirm."
+  },
+  "url": "https://webdriveruniversity.com/Login-Portal/index.html",
+  "requested_url": "https://webdriveruniversity.com/Login-Portal/index.html",
+  "title": "WebDriver | Login Portal",
+  "scope": null,
+  "scanned_at": "2026-11-20T20:32:43+00:00",
+  "http_status": 200,
+  "browser": "chromium 159.0.8154.6",
+  "scan_seconds": 6.14,
+  "element_count": 4,
+  "truncated": false,
+  "warnings": [],
+  "elements": [
+    {
+      "tag": "a",
+      "text": "← Home",
+      "label": "",
+      "attributes": {
+        "id": "home-link",
+        "href": "../index.html"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": null,
+      "id": 1,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"link\", name=\"\\u2190 Home\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_id",
+          "code": "locator(\"[id=\\\"home-link\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_href",
+          "code": "locator(\"a[href=\\\"../index.html\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "id": "text",
+        "type": "text",
+        "placeholder": "Username"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": "form",
+      "id": 2,
+      "locators": [
+        {
+          "strategy": "placeholder",
+          "code": "get_by_placeholder(\"Username\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_id",
+          "code": "locator(\"[id=\\\"text\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "input",
+      "text": "",
+      "label": "",
+      "attributes": {
+        "id": "password",
+        "type": "password",
+        "placeholder": "Password"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": "form",
+      "id": 3,
+      "locators": [
+        {
+          "strategy": "placeholder",
+          "code": "get_by_placeholder(\"Password\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_id",
+          "code": "locator(\"[id=\\\"password\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "tag": "button",
+      "text": "Login",
+      "label": "",
+      "attributes": {
+        "id": "login-button",
+        "type": "submit"
+      },
+      "visible": true,
+      "enabled": true,
+      "form": "form",
+      "id": 4,
+      "locators": [
+        {
+          "strategy": "role",
+          "code": "get_by_role(\"button\", name=\"Login\", exact=True)",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        },
+        {
+          "strategy": "css_id",
+          "code": "locator(\"[id=\\\"login-button\\\"]\")",
+          "match_count": 1,
+          "unique": true,
+          "stable": true
+        }
+      ]
+    }
+  ]
+}

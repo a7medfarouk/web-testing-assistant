@@ -1,0 +1,1 @@
+{"time": "2026-11-20T20:45:06+00:00", "inspection_id": "webdriveruniversity.com_20261120_204450_547308", "goal": "hello", "elements_used": 4, "model": "qwen2.5-coder:7b", "model_digest": "dae161e27b0e", "hardware": "<your CPU, RAM, GPU>", "prompt_tokens": 410, "output_tokens": 84, "response_time_s": 9.66}

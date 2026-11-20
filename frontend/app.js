@@ -122,7 +122,7 @@ function updateSelection(visibleRows) {
   const count = state.selected.size;
   $("selection-summary").textContent = count
     ? `${count} element${count === 1 ? "" : "s"} selected`
-    : "No elements selected: the model will use the first 40 elements.";
+    : "";
 
   const visibleSelected = visibleRows.filter((r) => state.selected.has(r.id)).length;
   selectAll.checked = visibleRows.length > 0 && visibleSelected === visibleRows.length;
@@ -142,7 +142,6 @@ function renderReport(data) {
   $("page-meta").textContent =
     `HTTP ${data.http_status ?? "?"} · ${data.scan_seconds}s · ${data.browser}` +
     (data.scope ? ` · scope: ${data.scope}` : "");
-
   $("stat-total").textContent = data.element_count;
   $("stat-unique").textContent = unique;
   $("stat-weak").textContent = data.elements.length - unique;
@@ -161,11 +160,10 @@ function renderReport(data) {
 }
 
 function showModelResult(answer, usage, isError) {
-  modelCard.className = "card model" + (isError ? " error" : "");
+  modelCard.className = isError ? "card error" : "card";
   $("model-answer").textContent = answer;
   $("model-usage").textContent = usage
     ? `Model: ${usage.model}${usage.model_digest ? ` (${usage.model_digest})` : ""}` +
-      ` · Hardware: ${usage.hardware}` +
       ` · Prompt tokens: ${usage.prompt_tokens}` +
       ` · Output tokens: ${usage.output_tokens}` +
       ` · Response time: ${usage.response_time_s}s`

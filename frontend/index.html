@@ -7,18 +7,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">Web Testing Assistant</div>
-    <nav class="steps" aria-label="Workflow">
-      <button class="step active" data-view="inspect">1 · Inspect</button>
-      <button class="step" disabled>2 · Test plan</button>
-      <button class="step" disabled>3 · Code</button>
-      <button class="step" disabled>4 · Results</button>
-    </nav>
+  <header>
+    <div class="header-inner">
+      <span class="logo" aria-hidden="true"></span>
+      <div>
+        <h1>Web Testing Assistant</h1>
+        <p>Inspect a page, pick elements, ask the model</p>
+      </div>
+    </div>
   </header>
 
-  <main class="layout">
-    <aside class="sidebar">
+  <main>
+    <aside>
       <form id="inspect-form" class="card">
         <h2>Inspect a page</h2>
 
@@ -36,7 +36,7 @@
       </form>
 
       <section id="selection-card" class="card" hidden>
-        <h2>Selection</h2>
+        <h2>Model</h2>
         <p id="selection-summary" class="muted"></p>
         <button id="ask-btn" type="button" class="primary">Ask the model</button>
         <button id="clear-selection" type="button" class="link">Clear selection</button>
@@ -53,24 +53,24 @@
         <div class="card page-info">
           <div>
             <div id="page-title" class="page-title"></div>
-            <a id="page-url" class="page-url" target="_blank" rel="noopener noreferrer"></a>
+            <a id="page-url" target="_blank" rel="noopener noreferrer"></a>
           </div>
           <div id="page-meta" class="muted"></div>
         </div>
 
-        <div class="stats">
+        <div class="card stats">
           <div class="stat"><span id="stat-total" class="num">0</span><span class="label">Elements</span></div>
           <div class="stat"><span id="stat-unique" class="num">0</span><span class="label">With a unique locator</span></div>
           <div class="stat"><span id="stat-weak" class="num">0</span><span class="label">Without one</span></div>
         </div>
 
-        <ul id="warnings" class="warnings" hidden></ul>
+        <ul id="warnings" hidden></ul>
 
-        <div id="model-card" class="card model" hidden>
+        <section id="model-card" class="card" hidden>
           <h2>Model answer</h2>
           <p id="model-answer"></p>
           <p id="model-usage" class="muted"></p>
-        </div>
+        </section>
 
         <div class="card table-card">
           <div class="toolbar">
@@ -81,7 +81,7 @@
             <table id="results">
               <thead>
                 <tr>
-                  <th class="check"><input id="select-all" type="checkbox" aria-label="Select all visible rows"></th>
+                  <th class="check"><input id="select-all" type="checkbox" aria-label="Select all shown rows"></th>
                   <th>#</th>
                   <th>Element</th>
                   <th>Attributes</th>
@@ -94,7 +94,7 @@
           </div>
         </div>
 
-        <details class="card raw">
+        <details class="card">
           <summary>Raw JSON</summary>
           <pre id="raw"></pre>
         </details>

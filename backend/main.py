@@ -8,7 +8,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from backend.config import FRONTEND_DIR, MAX_ELEMENTS_IN_PROMPT, RUNNER_URL
+from backend.config import FRONTEND_DIR, RUNNER_URL
 from backend.model_client import ModelError, ask_model
 from backend.storage import load_inspection, log_model_call, save_inspection
 
@@ -60,7 +60,6 @@ def summarize(req: SummarizeRequest):
         elements = [e for e in elements if e["id"] in req.element_ids]
         if not elements:
             raise HTTPException(status_code=400, detail="None of the selected elements exist.")
-    elements = elements[:MAX_ELEMENTS_IN_PROMPT]
 
     try:
         answer, usage = ask_model(req.goal, inspection, elements)
